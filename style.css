@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+:root{
+    --main: #aec2ab;
+    --secondary: #fc7765;    
+    --contrastMain: #495247;
+    --contrastSec: #5c241c;
+}
+
+body{
+    height: 100dvh;
+    width:calc(100vw);        
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    background-color: #f3f3f3;
+    position: relative;
+}
+
+.modalLogin{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.808);
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20221004/pngtree-spain-flag-paper-texture-background-image_1466869.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.inputsLogin{
+    background-color: #3a3f3a;
+    min-height: 280px;
+    padding: 50px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.inputsLogin h1{
+    color: whitesmoke;
+    font-size: 3.2rem;
+    font-weight: 600;
+}
+
+.inputsLogin h3{
+    font-size: 1rem;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.inputHolder{
+    padding: 10px 100px 10px 10px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+}
+
+.titleLogin{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
+
+.titleLogin h1{
+    font-weight: 800;
+}
+
+.btnLogar{
+    padding: 8px 60px;
+    background-color: var(--main);
+    color: var(--contrastMain);
+    box-shadow: none;
+    border: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.btnLogar:hover{
+    cursor: pointer;
+    background-color: #aec2aba4;
+}
+
+.criarConta{
+    width: 100%;
+    height: 100%;
+    background-color: #22222290;
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerInputs{
+    width: 50%;
+    height: 75%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 45px;
+    font-weight: 600;
+}
+
+.containerAdmin{
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;    
+}
+
+.criarContaAdmin{
+    width: 100%;
+    height: 100%;
+    background-color: #22222290;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.containerInputsAdmin, .listaUsers{
+    width: 50%;
+    padding: 20px 50px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 45px;
+    font-weight: 600;
+}
+
+.listaUsers{
+    min-height: 110px;
+    gap: 0;
+    padding: 20px 50px;
+}
+
+.tabelaAdmin{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #22222225;
+}
+
+.descTabela{
+    background-color: #22222225;
+}
+
+.userItem{
+    width: 40%;
+}
+
+.userMail{
+    width: 32%;
+}
+
+.userDate{
+    width: 18%;
+}
+
+.userActions{
+    width: 10%;
+}
+
+
+.descTabela th{
+    font-weight: 800;
+    padding: 5px 0;
+}
+
+.descTabela th{
+    font-weight: 800;
+    padding: 5px 0;
+}
+
+.itensTabela tr{
+    background-color: #f1f1f1;
+    max-height: 20px;
+}
+
+.itensTabela td{
+    padding: 5px;
+}
+
+.inputsDatan{
+    width: 100%;
+}
+
+.inputDataBtn{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerInputs input,.containerInputsAdmin input{
+    padding: 5px;
+    height: 30px;
+    width: 95%;
+}
+
+header{
+    max-width: 100dvw;
+    padding: 5px 50px;
+    background-color:var(--main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav{    
+    height: 50px;
+}
+
+.navBar{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    list-style: none;    
+    color: rgb(255, 255, 255);
+}
+
+.navBar li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+}
+
+.navBar li:hover, .navBar a:hover{
+    color: rgba(255, 255, 255, 0.678);
+    cursor: pointer;
+}
+
+.modalConfig{
+    width: 250px;
+    padding: 15px;
+    background-color: var(--contrastMain);
+    border-radius: 10px;
+    transform: translateX(210px);
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;   
+    gap: 10px; 
+}
+
+.modalConfig a, .modalConfig h4{
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #aec2ab;
+}
+
+.modalConfig a:hover, .modalConfig h4:hover{
+    cursor: pointer;
+    color: #aec2ab83;
+}
+
+/* BODY */
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logomarca{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
+.titleMenuLink{
+    font-family: "Roboto Slab", serif;
+    font-size: 4rem;
+    font-weight: 600;
+    padding-top: 200px;
+}
+
+.titlePj{
+    max-width: 100%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.titlePj h1{
+    font-weight: 700;
+}
+
+.history{
+    max-width: 100%;
+    padding: 60px 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.history img{
+    border-radius: 10px;
+}
+
+.oficinas{
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgFundoOficinas{
+    width: 100%;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/019/015/937/non_2x/a-group-of-children-sitting-at-the-table-in-the-classroom-and-reading-together-or-shelves-in-the-background-illustration-of-student-study-group-cartoon-vector.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 450px;
+}
+
+.textOficinas{
+    width: 70%;
+    padding: 25px;
+}
+
+.textOficinas h1{
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: justify;
+    line-height: 25px;
+}
+
+.negritoTxt{
+    font-weight: 800;
+}
+
+.textHistory{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    text-align: justify;
+}
+
+.textHistory h1{
+    font-weight: 700;
+}
+
+.resultados{
+    width: 100%;
+    padding: 10px 280px;
+    padding-bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cardsResultados{
+    width: 270px;
+    height: 550px;
+    color: whitesmoke;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    padding: 15px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+.textResultados{
+    flex: 1;
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+.inscrevase{
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.inscrevase span{
+    padding: 20px 60px;
+    background-color: var(--main);
+    color: #222222;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 2.2rem;
+    border: none;
+    text-decoration: none;
+}
+
+footer{
+    width: 100dvw;
+    padding: 30px 350px;
+    background-color: var(--main);
+    color: var(--contrastMain);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.7rem;
+}
+
+footer div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    gap: 50px;
+}
+
+footer a{
+    text-decoration: none;
+    font-size: 0.9rem;    
+    color: var(--contrastMain);
+}
+
+.icons{
+    font-size: 4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

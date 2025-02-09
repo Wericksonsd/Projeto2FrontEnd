@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Admin - Cadastro</title>
+</head>
+<body>
+    <div class="containerAdmin">
+        <div class="criarContaAdmin" id="modalCriarConta">
+            <div class="containerInputsAdmin">
+                <h1>Insira os dados para criar sua conta!</h1>
+                <span class="inputsDatan">
+                    <h3>NOME USUÁRIO</h3>
+                    <input id="nomeUsuarioCA" type="text" placeholder="NOME USUÁRIO">
+                </span>
+                <span class="inputsDatan">
+                    <h3>E-MAIL:</h3>
+                    <input id="emailCA" type="email" placeholder="E-MAIL">
+                </span>
+                <span class="inputDataBtn">
+                    <button id="btnCA" type="button" class="btnLogar">CADASTRAR</button>
+                    <button id="btnLimpar" type="button" class="btnLogar">LIMPAR CAMPOS</button>
+                </span>
+                <span class="inputDataBtn">
+                    <input id="pesquisa" type="text" placeholder="Pesquisar por nome ou e-mail">
+                    <button id="btnPesquisar" type="button" class="btnLogar">PESQUISAR</button>
+                </span>
+            </div>
+            <div class="listaUsers">
+                <table class="tabelaAdmin">
+                    <thead class="descTabela">
+                        <tr>
+                            <th class="userItem" scope="col">USUÁRIO</th>
+                            <th class="userMail" scope="col">E-MAIL</th>
+                            <th class="userDate" scope="col">DATA CADASTRO</th>
+                            <th class="userActions" scope="col">AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="itensTabela" id="itensTabela">
+                    </tbody>
+                </table>
+                <button id="btnExcluirTodos" type="button" class="btnLogar">EXCLUIR TODOS</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function salvarDados(nome, email) {
+            const usuario = {
+                nome: nome,
+                email: email,
+                data: new Date().toLocaleString()
+            };
+
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        }
+
+        function carregarDados() {
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const tbody = document.getElementById('itensTabela');
+            tbody.innerHTML = '';
+
+            usuarios.forEach((usuario, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${usuario.nome}</td>
+                    <td>${usuario.email}</td>
+                    <td>${usuario.data}</td>
+                    <td>
+                        <button onclick="excluirItem(${index})" class="btnExcluir">EXCLUIR</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function excluirItem(index) {
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.splice(index, 1);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            carregarDados();
+        }
+
+        function excluirTodos() {
+            localStorage.removeItem('usuarios');
+            carregarDados();
+        }
+
+        function pesquisar() {
+            const termo = document.getElementById('pesquisa').value.toLowerCase();
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const tbody = document.getElementById('itensTabela');
+            tbody.innerHTML = '';
+
+            usuarios.forEach((usuario, index) => {
+                if (usuario.nome.toLowerCase().includes(termo) || usuario.email.toLowerCase().includes(termo)) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${usuario.nome}</td>
+                        <td>${usuario.email}</td>
+                        <td>${usuario.data}</td>
+                        <td>
+                            <button onclick="excluirItem(${index})" class="btnExcluir">EXCLUIR</button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                }
+            });
+        }
+
+        document.getElementById('btnCA').addEventListener('click', () => {
+            const nome = document.getElementById('nomeUsuarioCA').value.trim();
+            const email = document.getElementById('emailCA').value.trim();
+
+            if (!nome || !email) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            salvarDados(nome, email);
+            carregarDados();
+            document.getElementById('nomeUsuarioCA').value = '';
+            document.getElementById('emailCA').value = '';
+        });
+
+        document.getElementById('btnLimpar').addEventListener('click', () => {
+            document.getElementById('nomeUsuarioCA').value = '';
+            document.getElementById('emailCA').value = '';
+        });
+
+        document.getElementById('btnExcluirTodos').addEventListener('click', excluirTodos);
+
+        document.getElementById('btnPesquisar').addEventListener('click', pesquisar);
+
+        window.addEventListener('load', carregarDados);
+    </script>
+</body>
+</html>
