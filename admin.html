@@ -39,8 +39,7 @@
                             <th class="userActions" scope="col">AÇÕES</th>
                         </tr>
                     </thead>
-                    <tbody class="itensTabela" id="itensTabela">
-                    </tbody>
+                    <tbody class="itensTabela" id="itensTabela"></tbody>
                 </table>
                 <button id="btnExcluirTodos" type="button" class="btnLogar">EXCLUIR TODOS</button>
             </div>
@@ -56,6 +55,7 @@
             };
 
             const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push(usuario);
             localStorage.setItem('usuarios', JSON.stringify(usuarios));
         }
 
@@ -85,10 +85,12 @@
             carregarDados();
         }
 
+
         function excluirTodos() {
             localStorage.removeItem('usuarios');
             carregarDados();
         }
+
 
         function pesquisar() {
             const termo = document.getElementById('pesquisa').value.toLowerCase();
@@ -112,6 +114,7 @@
             });
         }
 
+
         document.getElementById('btnCA').addEventListener('click', () => {
             const nome = document.getElementById('nomeUsuarioCA').value.trim();
             const email = document.getElementById('emailCA').value.trim();
@@ -127,10 +130,12 @@
             document.getElementById('emailCA').value = '';
         });
 
+
         document.getElementById('btnLimpar').addEventListener('click', () => {
             document.getElementById('nomeUsuarioCA').value = '';
             document.getElementById('emailCA').value = '';
         });
+
 
         document.getElementById('btnExcluirTodos').addEventListener('click', excluirTodos);
 

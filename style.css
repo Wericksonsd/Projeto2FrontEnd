@@ -161,7 +161,6 @@ body{
 }
 
 .listaUsers{
-    min-height: 110px;
     gap: 0;
     padding: 20px 50px;
 }
